@@ -2,7 +2,11 @@ var path = require('path')
 var webpack = require('webpack')
 
 module.exports = {
-  entry: './src/index',
+  entry: [
+    'webpack-hot-middleware/client?http://0.0.0.0:4000', // host and port
+    'webpack/hot/only-dev-server', // "only" prevents reload on syntax errors
+    './src/index'
+  ],
   output: {
     path: path.join(__dirname, 'build'),
     filename: 'bundle.js',
@@ -19,7 +23,7 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel!eslint-loader'
+        loader: 'react-hot!babel!eslint-loader'
       }
     ]
   }
