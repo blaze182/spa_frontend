@@ -1,0 +1,8 @@
+{
+  "rules": {
+    "quotes": [2, "single"],
+    "strict": [2, "never"],
+    "semi": ["error", "never"],
+    "max-len": [1, 120, 2, {ignoreComments: true}]
+  }
+}

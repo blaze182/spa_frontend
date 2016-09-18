@@ -8,7 +8,19 @@ module.exports = {
     filename: 'bundle.js',
     publicPath: '/static/'
   },
+  eslint: {
+    configFile: './.eslintrc'
+  },
   plugins: [
     new webpack.HotModuleReplacementPlugin()
-  ]
+  ],
+  module: {
+    loaders: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'eslint-loader'
+      }
+    ]
+  }
 }
