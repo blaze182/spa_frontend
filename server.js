@@ -16,8 +16,8 @@ app.get('/', function(req, res) {
 
 app.listen(port, function(error) {
   if (error) {
-    console.error(error)
+    console.error(error) // eslint-disable-line no-console
   } else {
-    console.info('==> http://localhost:%s/', port)
+    console.info('==> http://localhost:%s/', port) // eslint-disable-line no-console
   }
 })
