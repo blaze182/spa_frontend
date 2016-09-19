@@ -29,6 +29,7 @@ export default class App extends Component {
     return (
       <main>
         <h1>Noticias</h1>
+        <PostList data={data} />
         <PostForm />
       </main>
     )
