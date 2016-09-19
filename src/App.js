@@ -7,7 +7,10 @@ export default class App extends Component {
     return (
       <main>
         <h1>Noticias</h1>
-        <Post />
+        <Post id={1} name="Episodio 2002 “Skank Hunt” Comunicado de prensa">
+          La pesca de arrastre en Twitter continúa en un nuevo episodio
+          se estrenará Miércoles 21 de septiembre a 22:00 ET / PT en Comedy Central
+        </Post>
         <PostForm />
       </main>
     )
