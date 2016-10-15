@@ -1,3 +1,4 @@
+import 'whatwg-fetch'
 import React, { Component } from 'react'
 import PostList from './PostList'
 import PostForm from './PostForm'
