@@ -7,7 +7,7 @@ export default class PostList extends Component {
   }
 
   render() {
-    const postNodes = this.props.data.map( (post) => {
+    const postNodes = this.props.data.map(post => {
       return (
         <Post key={post.id} id={Number(post.id)} name={post.attributes.title}>
           {post.attributes.body}

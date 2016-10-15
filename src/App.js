@@ -19,8 +19,8 @@ export default class App extends Component {
 
   loadDataFromServer = () => {
     fetch(this.props.url).
-      then( (response) => { return response.json() } ).
-      then( (json) => { this.setState({ data: json.data }) } )
+      then(response => { return response.json() }).
+      then(json => { this.setState({ data: json.data }) })
   }
 
   render() {
