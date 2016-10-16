@@ -24,6 +24,23 @@ export default class App extends Component {
       catch( error => { this.setState({ error: error }) })
   }
 
+  handlePostSubmit = (post) => {
+    fetch(this.props.url, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        username: post.author,
+        title: post.title,
+        body: post.body
+      })
+    }).
+      then(() => { this.loadDataFromServer() }).
+      catch(error => { this.setState({ error: error }) })
+  }
+
   render() {
     const { data, error } = this.state
 
@@ -36,7 +53,7 @@ export default class App extends Component {
           : null
         }
         <PostList data={data} />
-        <PostForm />
+        <PostForm onPostSubmit={this.handlePostSubmit} />
       </main>
     )
   }
