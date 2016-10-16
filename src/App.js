@@ -10,7 +10,7 @@ export default class App extends Component {
 
   constructor(props) {
     super(props)
-    this.state = { data: [] }
+    this.state = { data: [], error: null }
   }
 
   componentDidMount() {
@@ -20,15 +20,21 @@ export default class App extends Component {
   loadDataFromServer = () => {
     fetch(this.props.url).
       then(response => { return response.json() }).
-      then(json => { this.setState({ data: json.data }) })
+      then(json => { this.setState({ data: json.data }) }).
+      catch( error => { this.setState({ error: error }) })
   }
 
   render() {
-    const { data } = this.state
+    const { data, error } = this.state
 
     return (
       <main>
         <h1>Noticias</h1>
+        {
+          error
+          ? <strong>Error occurred: {error.message}</strong>
+          : null
+        }
         <PostList data={data} />
         <PostForm />
       </main>
