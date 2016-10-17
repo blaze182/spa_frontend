@@ -1,13 +1,10 @@
 import 'whatwg-fetch'
+import { POSTS_URL } from './index'
 import React, { Component } from 'react'
 import PostList from './PostList'
 import PostForm from './PostForm'
 
 export default class App extends Component {
-  static propTypes = {
-    url: React.PropTypes.string.isRequired
-  }
-
   constructor(props) {
     super(props)
     this.state = { data: [], error: null }
@@ -18,14 +15,14 @@ export default class App extends Component {
   }
 
   loadDataFromServer = () => {
-    fetch(this.props.url).
+    fetch(POSTS_URL).
       then(response => { return response.json() }).
       then(json => { this.setState({ data: json.data }) }).
       catch( error => { this.setState({ error: error }) })
   }
 
   handlePostSubmit = (post) => {
-    fetch(this.props.url, {
+    fetch(POSTS_URL, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
